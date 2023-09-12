@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 
 // third party
 import { BrowserRouter } from 'react-router-dom';
@@ -10,7 +10,7 @@ import '_mockApis';
 
 // project imports
 import App from 'App';
-import { BASE_PATH } from 'config';
+import { HOME_PATH } from 'config';
 import { store, persister } from 'store';
 import { ConfigProvider } from 'contexts/ConfigContext';
 
@@ -19,18 +19,15 @@ import 'assets/scss/style.scss';
 
 // ==============================|| REACT DOM RENDER  ||============================== //
 
-// Create a root instance
-const root = createRoot(document.getElementById('root'));
-
-// Use the root instance to render your React app
-root.render(
+ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persister}>
             <ConfigProvider>
-                <BrowserRouter basename={BASE_PATH}>
+                <BrowserRouter basename={HOME_PATH}>
                     <App />
                 </BrowserRouter>
             </ConfigProvider>
         </PersistGate>
-    </Provider>
+    </Provider>,
+    document.getElementById('root')
 );
