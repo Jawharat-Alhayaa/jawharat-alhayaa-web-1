@@ -1,5 +1,5 @@
 # Jawharat Alhayaa Web
-version 1.0.1
+version 1.0.0
 
 ## Available Scripts
 
